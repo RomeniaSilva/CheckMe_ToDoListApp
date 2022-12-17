@@ -33,7 +33,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="32dp"
-        android:backgroundTint="@color/darkBlue"
+        android:backgroundTint="@color/colorPrimary"
         android:src="@drawable/ic_baseline_add"/>
 
 
