@@ -1,6 +1,7 @@
 package com.example.checkme;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,7 +44,21 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         taskAdapter = new CheckMeAdapter(db,this);
         taskRecyclerView.setAdapter(taskAdapter);
 
+        /*CheckMeModel task = new CheckMeModel();
+        task.setTask("This is a test");
+        task.setStatus(0);
+        task.setId(1);
+
+        taskList.add(task);
+        taskList.add(task);
+        taskList.add(task);
+        taskList.add(task);*/
+
         fab = findViewById(R.id.fab);
+
+        ItemTouchHelper itemTouchHelper = new
+                ItemTouchHelper(new RecyclerItemTouchHelper(taskAdapter));
+        itemTouchHelper.attachToRecyclerView(taskRecyclerView);
 
         taskList = db.getAllTasks();
         Collections.reverse(taskList);

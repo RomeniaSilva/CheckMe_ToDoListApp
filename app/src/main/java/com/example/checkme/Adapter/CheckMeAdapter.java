@@ -1,5 +1,6 @@
 package com.example.checkme.Adapter;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,6 +65,13 @@ public class CheckMeAdapter extends RecyclerView.Adapter<CheckMeAdapter.ViewHold
         notifyDataSetChanged();
     }
 
+    public void deleteItem(int position){
+        CheckMeModel item = todoList.get(position);
+        db.deleteTask(item.getId());
+        todoList.remove(position);
+        notifyItemRemoved(position);
+    }
+
     public void editItem(int position){
         CheckMeModel item = todoList.get(position);
         Bundle bundle = new Bundle();
@@ -72,6 +80,10 @@ public class CheckMeAdapter extends RecyclerView.Adapter<CheckMeAdapter.ViewHold
         AddNewTask fragment = new AddNewTask();
         fragment.setArguments(bundle);
         fragment.show(activity.getSupportFragmentManager(), AddNewTask.TAG);
+    }
+
+    public Context getContext() {
+        return activity;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
