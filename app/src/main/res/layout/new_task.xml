@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/newTaskText"
@@ -18,7 +19,7 @@
         android:layout_alignParentEnd="true"
         android:textSize="16sp"
         android:text="Save"
-        android:textAllCaps="true"
+        android:textAllCaps="false"
         android:background="@android:color/transparent"
         android:textColor="@android:color/darker_gray"/>
 
